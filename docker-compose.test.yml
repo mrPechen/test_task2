@@ -1,0 +1,18 @@
+# Переопределение для интеграционных тестов: быстрые таймауты и включённый
+# admin-эндпоинт у фейковых провайдеров (тесты управляют поведением через
+# PUT /_settings без рестарта).
+services:
+  app:
+    environment:
+      PROVIDER_TIMEOUT: 2
+      PROVIDER_CALL_TIMEOUT: 2
+  alpha:
+    environment:
+      ADMIN_ENABLED: "true"
+      DELAY_MIN: 0.05
+      DELAY_MAX: 0.1
+  beta:
+    environment:
+      ADMIN_ENABLED: "true"
+      DELAY_MIN: 0.05
+      DELAY_MAX: 0.1
